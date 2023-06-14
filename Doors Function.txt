@@ -1,0 +1,8 @@
+def doors(n):
+    doors = [False] * n # Создаем список из n элементов со значением False, что означает, что все двери закрыты
+    for i in range(n): # Делаем n проходов
+        for j in range(i, n, i+1): # Начиная с i-й двери, переключаем каждую (i+1)-ю дверь
+            doors[j] = not doors[j] # Переключаем состояние двери
+    return [i+1 for i, door in enumerate(doors) if door] # Возвращаем список открытых дверей
+
+print(doors(100))
